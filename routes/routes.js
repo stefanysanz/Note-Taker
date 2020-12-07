@@ -21,7 +21,7 @@ app.get("/api/notes", (req, res) => {
     console.log(`{"endpoint":"GET_NOTES","message":"request-received"}`);
 
     // Open the file
-    fs.readFile("db.json", "utf8", (err, rawData) => {
+    fs.readFile("../db/db.json", "utf8", (err, rawData) => {
         if (err) {
             console.log(error);
             return
@@ -48,7 +48,7 @@ app.post("/api/notes", (req, res) => {
     let note;
 
     // Open the file
-    fs.readFile("db.json", "utf8", (err, rawData) => {
+    fs.readFile("../db/db.json", "utf8", (err, rawData) => {
         if (err) {
             console.log(error);
             return
@@ -67,7 +67,7 @@ app.post("/api/notes", (req, res) => {
         data.notes.push(note);
 
         // Overwrite the file
-        fs.writeFile("db.json", JSON.stringify(data), (err) => {
+        fs.writeFile("../db/db.json", JSON.stringify(data), (err) => {
             if (err) {
                 console.log(error);
                 return
@@ -93,7 +93,7 @@ app.delete("/api/notes/:id", (req, res) => {
     let notes = [];
 
     // Open the file
-    fs.readFile("db.json", "utf8", (err, rawData) => {
+    fs.readFile("../db/db.json", "utf8", (err, rawData) => {
         if (err) {
             console.log(error);
             return
@@ -124,7 +124,7 @@ app.delete("/api/notes/:id", (req, res) => {
         data.notes = notes;
 
         // Overwrite the file
-        fs.writeFile("db.json", JSON.stringify(data), (err) => {
+        fs.writeFile("../db/db.json", JSON.stringify(data), (err) => {
             if (err) {
                 console.log(error);
                 return
