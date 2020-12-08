@@ -32,11 +32,7 @@ app.get("/api/notes", (req, res) => {
 
        
         // Handle success
-        res.send({
-            code: 200,
-            status: "success",
-            notes: data
-        });
+        res.send(data.notes);
     })
 
 })
@@ -60,7 +56,8 @@ app.post("/api/notes", (req, res) => {
         // Create the new note
         note = {
             id: uuidv4(),
-            note: req.body.note
+            title: req.body.title,
+            text: req.body.text
         }
 
         // Push the note onto the array
@@ -76,7 +73,8 @@ app.post("/api/notes", (req, res) => {
              // Handle success
              res.send({
                 code: 200,
-                status: "success",
+                status: "ok",
+                message: "note created",
                 note: note
             });
         })
@@ -134,7 +132,7 @@ app.delete("/api/notes/:id", (req, res) => {
             res.send({
                 code: 200,
                 status: "ok",
-                message: "success",
+                message: "note deleted",
                 note: note
             });
         })
