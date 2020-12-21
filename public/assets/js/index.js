@@ -123,12 +123,12 @@ const renderNoteList = (notes) => {
     }
     return $li;
   };
-
-  if (notes.length === 0) {
+  
+  if (notes.notes.length === 0) {
     noteListItems.push(create$li("No saved Notes", false));
   }
 
-  notes.forEach((note) => {
+  notes.notes.forEach((note) => {
     const $li = create$li(note.title).data(note);
     noteListItems.push($li);
   });
