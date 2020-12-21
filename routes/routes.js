@@ -26,7 +26,7 @@ app.get("/api/notes", (req, res) => {
 
     // Open the file
     try {
-        rawData = fs.readFileSync("../db/db.json", "utf8")
+        rawData = fs.readFileSync("db/db.json", "utf8")
     } catch (err) {
         console.log(err)
         internalServerError(res)
@@ -53,7 +53,7 @@ app.post("/api/notes", (req, res) => {
 
     // Open the file
     try {
-        rawData = fs.readFileSync("../db/db.json", "utf8")
+        rawData = fs.readFileSync("db/db.json", "utf8")
     } catch (err) {
         console.log(err)
         internalServerError(res)
@@ -75,14 +75,14 @@ app.post("/api/notes", (req, res) => {
 
     // Overwrite the file
     try {
-       fs.writeFileSync("../db/db.json", JSON.stringify(data))
-    } catch(err) {
+        fs.writeFileSync("db/db.json", JSON.stringify(data))
+    } catch (err) {
         console.log(err)
         internalServerError(res)
         return
     }
 
-    
+
     // Handle success
     res.status(200)
     res.send({
@@ -100,16 +100,16 @@ app.delete("/api/notes/:id", (req, res) => {
 
     // Open the file
     try {
-        rawData = fs.readFileSync("../db/db.json", "utf8")
+        rawData = fs.readFileSync("db/db.json", "utf8")
     } catch (err) {
         console.log(err)
         internalServerError(res)
         return
     }
-    
+
     // Parse the data
     const data = JSON.parse(rawData)
-    
+
     let note
     let notes = []
     let found = false
@@ -139,8 +139,8 @@ app.delete("/api/notes/:id", (req, res) => {
 
     // Overwrite the file
     try {
-        fs.writeFileSync("../db/db.json", JSON.stringify(data))
-    } catch(err) {
+        fs.writeFileSync("db/db.json", JSON.stringify(data))
+    } catch (err) {
         console.log(err)
         internalServerError(res)
         return
@@ -152,7 +152,7 @@ app.delete("/api/notes/:id", (req, res) => {
         status: "OK",
         message: "note deleted",
         note: note
-    }) 
+    })
 })
 
 const internalServerError = (res) => {
