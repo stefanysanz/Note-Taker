@@ -59,7 +59,7 @@ exports.create = (app) => {
 
         // Overwrite the file
         try {
-        fs.writeFileSync("./db/db.json", JSON.stringify(data))
+            fs.writeFileSync("./db/db.json", JSON.stringify(data))
         } catch(err) {
             console.log(err)
             internalServerError(res)
