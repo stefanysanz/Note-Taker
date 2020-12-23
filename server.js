@@ -3,7 +3,7 @@ const express = require("express")
 const cors = require("cors")
 const routes = require("./routes/routes.js")
 
-const port = 8000
+const port = process.env.PORT || 8000
 
 const app = express()
 app.use(express.static(path.join(__dirname, 'public')))
