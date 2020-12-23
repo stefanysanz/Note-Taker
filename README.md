@@ -5,7 +5,7 @@ In this homework we created an application that can be used to write, save, and 
 
 [Check out the deployed app on heroku!](https://note-taker-app-hw11.herokuapp.com/)
  
-<img src="../img/home.jpg" alt="home">
+<img src="./img/home.jpg" alt="home">
 
 
 <!-- [Check out my video here!](https://drive.google.com/file/d/1SEcC_Fykddi6K5ctFwrhoA_yEAPLQf3_/view?usp=sharing) -->
